@@ -1,10 +1,16 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
-@section('content')
+</head>
+<body>
 <div class="signup-container">
     <div class="logo">
-        <img src="https://img.icons8.com/doodle/96/car--v1.png" alt="UDrive Logo">
-        <h1>UDrive</h1>
+    
     </div>
     <p>Rejoignez notre réseau de covoiturage universitaire !</p>
     <form class="signup-form" id="signup-form">
@@ -26,5 +32,9 @@
         <button type="submit">Créer mon compte</button>
         <p>Déjà inscrit ? <a href="{{ route('login') }}">Connectez-vous ici</a>.</p>
     </form>
-</div>
-@endsection
+</div> 
+<script src="{{ asset('js/register.js') }}" defer></script>
+</body>
+</html>
+
+

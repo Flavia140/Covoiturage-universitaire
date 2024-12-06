@@ -154,13 +154,17 @@ h6 {
 }
 
 .header .logo {
-  line-height: 1;
+  line-height: 1; /* Peut rester si nécessaire */
+  display: flex;
+  align-items: center;
 }
 
 .header .logo img {
-  max-height: 32px;
-  margin-right: 8px;
+  max-height: 120px; /* Augmentez la hauteur maximale pour un logo plus grand */
+  width: auto; /* Conserve les proportions */
+  margin-right: 20px; /* Espace entre le logo et le texte (facultatif) */
 }
+
 
 .header .logo h1 {
   font-size: 30px;

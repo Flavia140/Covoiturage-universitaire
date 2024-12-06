@@ -1,0 +1,148 @@
+/* Général */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px; /* Augmenté pour mieux afficher les trajets */
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #4CAF50;
+}
+
+/* En-tête */
+.header h1 {
+    font-size: 2rem;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #666;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Formulaire */
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
+}
+
+/* Liste des trajets */
+.trip-list {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.trip-card {
+    background-color: #ffffff;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 20px); /* Pour afficher deux cartes par ligne */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trip-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.trip-card h3 {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.trip-card p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.trip-card p strong {
+    color: #000;
+}
+
+/* Message de succès */
+.success-message {
+    background-color: #e6ffe6;
+    color: #2c662d;
+    padding: 10px;
+    border: 1px solid #b3ffb3;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .trip-card {
+        width: 100%; /* Une seule carte par ligne sur mobile */
+    }
+
+    .container {
+        max-width: 90%;
+    }
+}

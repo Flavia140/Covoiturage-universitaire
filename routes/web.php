@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\TripController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,27 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('auth.register');
 });
+Route::get('/publish', [TripController::class, 'create'])->name('publish');
+
+    Route::get('/trips/publish', [TripController::class, 'create'])->name('trips.publish'); // Formulaire pour publier un trajet
+    Route::post('/trips/publish', [TripController::class, 'store'])->name('trips.store');  // Enregistrement du trajet
+    Route::get('/trips', [TripController::class, 'index'])->name('trips.index');        // Liste des trajets
+
+
+
+
+
+
+
+
+
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search/results', [SearchController::class, 'results'])->name('search.results');
+Route::get('/search', function () {
+    return view('trip.search');
+})->name('search');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

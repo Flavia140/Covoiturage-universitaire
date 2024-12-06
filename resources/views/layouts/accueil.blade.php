@@ -46,7 +46,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{{asset('img/logo.png')}}" alt="">
-        <h1 class="sitename">Bootslander</h1>
+        
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -55,8 +55,8 @@
           <li><a href="#about">A propos</a></li>
           <li><a href="{{ route('register') }}" class="btn-register">S'inscrire</a></li>
           <li><a href="#gallery">Se connecter</a></li>
-          <li><a href="#team">Publier trajet</a></li>
-          <li><a href="#pricing">Rechercher trajet</a></li>
+          <li><a href="{{ route('publish') }}" class="btn-register">Publier trajet</a></li>
+          <li><a href="{{ route('search') }}" class="btn-register">Rechercher trajet</a></li>
          
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -398,7 +398,7 @@
           <h4>Useful Links</h4>
           <ul>
             <li><a href="#">Accueil</a></li>
-            <li><a href="#">A propos</a></li>
+            <li><a href="#about">A propos</a></li>
             <li><a href="#">Publication de trajet</a></li>
             <li><a href="#">Recherche de trajet</a></li>
             
