@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -11,14 +12,14 @@ class RegisterController extends Controller
 {
     return view('auth.register');
 }
-use Illuminate\Http\Request;
-use App\Models\User; // Assurez-vous que le modèle User existe
-use Illuminate\Support\Facades\Hash;
+
+
 
 public function register(Request $request)
 {
     // Valider les données
-    $request->validate([
+    $request->validate([ 
+        
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:users',
         'phone' => 'required|string|min:10|max:15',
@@ -26,7 +27,7 @@ public function register(Request $request)
         'password' => 'required|string|min:8|confirmed',
         'user_type' => 'required|in:driver,passenger',
     ]);
-
+dd();
     
     $user = User::create([
         'name' => $request->name,

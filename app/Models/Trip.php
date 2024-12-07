@@ -17,4 +17,9 @@ class Trip extends Model
         'seats',
         'price',
     ];
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

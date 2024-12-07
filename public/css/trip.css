@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    max-width: 800px; /* Augmenté pour mieux afficher les trajets */
+    max-width: 800px;
     margin: 50px auto;
     background-color: #ffffff;
     padding: 20px;
@@ -63,6 +63,28 @@ body {
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
+/* Champ select */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+.form-group select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
 /* Bouton */
 button {
     width: 100%;
@@ -82,7 +104,7 @@ button:hover {
 
 button:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
 /* Liste des trajets */
@@ -100,7 +122,7 @@ button:focus {
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 20px); /* Pour afficher deux cartes par ligne */
+    width: calc(50% - 20px);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -139,7 +161,7 @@ button:focus {
 /* Responsive */
 @media (max-width: 768px) {
     .trip-card {
-        width: 100%; /* Une seule carte par ligne sur mobile */
+        width: 100%;
     }
 
     .container {

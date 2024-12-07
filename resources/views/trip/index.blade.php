@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Trajets</title>
-    <link rel="stylesheet" href="{{ asset('css/trip.css') }}">
+    <title>Document</title>
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <h1>Liste des Trajets Disponibles</h1>
-        <p>Découvrez les trajets disponibles et réservez une place !</p>
-    </div>
+    <h1>Liste des trajets</h1>
     @if(session('success'))
-        <div class="success-message">
+        <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-    <div class="trip-list">
-        @forelse ($trips as $trip)
-            <div class="trip-card">
-                <h3>Trajet de {{ $trip->departure }} à {{ $trip->destination }}</h3>
-                <p><strong>Date :</strong> {{ $trip->date }}</p>
-                <p><strong>Heure :</strong> {{ $trip->time }}</p>
-                <p><strong>Places disponibles :</strong> {{ $trip->seats }}</p>
-                <p><strong>Prix par place :</strong> {{ $trip->price }} FCFA</p>
-            </div>
-        @empty
-            <p>Aucun trajet disponible pour le moment. Publiez-en un !</p>
-        @endforelse
-    </div>
-</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Date & Heure</th>
+                <th>Places Disponibles</th>
+                <th>Publié par</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($trips as $trip)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $trip->depart }}</td>
+                    <td>{{ $trip->destination }}</td>
+                    <td>{{ $trip->date_heure }}</td>
+                    <td>{{ $trip->places_disponibles }}</td>
+                    <td>{{ $trip->user->name }}</td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center">Aucun trajet trouvé.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>  
 </body>
 </html>
+
+
+

@@ -54,9 +54,13 @@
           <li><a href="#hero" class="active">Accueil</a></li>
           <li><a href="#about">A propos</a></li>
           <li><a href="{{ route('register') }}" class="btn-register">S'inscrire</a></li>
-          <li><a href="#gallery">Se connecter</a></li>
+          <li><a href="{{route('login')}}" class="btn-register">Se connecter</a></li>
+          @if (
+            auth()->user()
+          )
           <li><a href="{{ route('publish') }}" class="btn-register">Publier trajet</a></li>
           <li><a href="{{ route('search') }}" class="btn-register">Rechercher trajet</a></li>
+          @endif
          
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

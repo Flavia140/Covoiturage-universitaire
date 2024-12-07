@@ -22,19 +22,17 @@ Route::get('/', function () {
 Route::get('/register', function () {
     return view('auth.register');
 });
-Route::get('/publish', [TripController::class, 'create'])->name('publish');
 
+Route::middleware(['web'])->group(function () {
+Route::get('/publish', [TripController::class, 'create'])->name('publish');
     Route::get('/trips/publish', [TripController::class, 'create'])->name('trips.publish'); // Formulaire pour publier un trajet
     Route::post('/trips/publish', [TripController::class, 'store'])->name('trips.store');  // Enregistrement du trajet
     Route::get('/trips', [TripController::class, 'index'])->name('trips.index');        // Liste des trajets
+});
 
 
-
-
-
-
-
-
+Route::get('/trips/publish', [TripController::class, 'create'])->middleware('auth')->name('trips.publish');
+Route::post('/trips/store', [TripController::class, 'store'])->middleware('auth')->name('trips.store');
 
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');

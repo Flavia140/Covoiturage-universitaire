@@ -13,7 +13,7 @@
     
     </div>
     <p>Rejoignez notre réseau de covoiturage universitaire !</p>
-    <form class="signup-form" id="signup-form">
+    <form class="signup-form" id="signup-form" action="{{route('register')}} " method="POST">
         @csrf <!-- CSRF protection -->
         <input type="text" id="full-name" name="name" placeholder="Prénom et Nom" required>
         <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>
@@ -34,6 +34,7 @@
     </form>
 </div> 
 <script src="{{ asset('js/register.js') }}" defer></script>
+
 </body>
 </html>
 
