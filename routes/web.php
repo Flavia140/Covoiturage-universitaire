@@ -18,7 +18,7 @@ use App\Http\Controllers\TripController;
 
 Route::get('/', function () {
     return view('layouts.accueil');
-});
+})->name('accueil');
 Route::get('/register', function () {
     return view('auth.register');
 });

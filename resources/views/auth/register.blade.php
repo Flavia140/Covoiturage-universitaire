@@ -8,6 +8,10 @@
 
 </head>
 <body>
+@if($errors->any())
+    {!! implode('', $errors->all('<div>:message</div>')) !!}
+@endif
+  
 <div class="signup-container">
     <div class="logo">
     
@@ -20,7 +24,7 @@
         <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone" required>
         <input type="text" id="university" name="university" placeholder="Université">
         <input type="password" id="password" name="password" placeholder="Mot de passe" required>
-        <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe" required>
+        <input type="password" id="confirm-password" name="password_confirmation" placeholder="Confirmez le mot de passe" required>
         <select id="user-type" name="user_type" required>
             <option value="" disabled selected>Type d'utilisateur</option>
             <option value="driver">Conducteur</option>
@@ -33,8 +37,6 @@
         <p>Déjà inscrit ? <a href="{{ route('login') }}">Connectez-vous ici</a>.</p>
     </form>
 </div> 
-<script src="{{ asset('js/register.js') }}" defer></script>
-
 </body>
 </html>
 

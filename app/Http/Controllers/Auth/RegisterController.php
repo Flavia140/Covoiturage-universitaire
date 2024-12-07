@@ -27,8 +27,7 @@ public function register(Request $request)
         'password' => 'required|string|min:8|confirmed',
         'user_type' => 'required|in:driver,passenger',
     ]);
-dd();
-    
+
     $user = User::create([
         'name' => $request->name,
         'email' => $request->email,
@@ -39,7 +38,8 @@ dd();
     ]);
 
     auth()->login($user);
-    return redirect()->route('home')->with('success', 'Inscription réussie !');
+  //  return redirect()->route('accueil')->with('success', 'Inscription réussie !');
+  return to_route('accueil');
 }
 
 
