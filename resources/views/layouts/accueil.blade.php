@@ -50,20 +50,34 @@
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Accueil</a></li>
-          <li><a href="#about">A propos</a></li>
-          <li><a href="{{ route('register') }}" class="btn-register">S'inscrire</a></li>
-          <li><a href="{{route('login')}}" class="btn-register">Se connecter</a></li>
-          @if (
-            auth()->user()
-          )
-          <li><a href="{{ route('publish') }}" class="btn-register">Publier trajet</a></li>
-          <li><a href="{{ route('search') }}" class="btn-register">Rechercher trajet</a></li>
-          @endif
-         
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    <ul>
+        <li><a href="#hero" class="active">Accueil</a></li>
+        <li><a href="#about">A propos</a></li>
+        
+        @guest
+            <!-- Afficher si l'utilisateur n'est PAS connecté -->
+            <li><a href="{{ route('register') }}" class="btn-register">S'inscrire</a></li>
+            <li><a href="{{ route('login') }}" class="btn-register">Se connecter</a></li>
+        @endguest
+
+        @auth
+            <!-- Afficher si l'utilisateur EST connecté -->
+            <li><a href="{{ route('publish') }}" class="btn-register">Publier trajet</a></li>
+            <li><a href="{{ route('search') }}" class="btn-register">Rechercher trajet</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+                        Se déconnecter
+                    </button>
+                </form>
+            </li>
+        @endauth
+    </ul>
+
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
+
 
     </div>
   </header>

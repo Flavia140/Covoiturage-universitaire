@@ -19,48 +19,66 @@
         <div class="form-group">
             <label for="departure">Point de départ</label>
             <select id="departure" name="departure" required>
-                <option value="" disabled selected> Sélectionnez le point de départ </option>
+                <option value="" disabled selected>Sélectionnez le point de départ</option>
                 <option value="ENEAM">ENEAM</option>
-                <option value="Université d'Abomey-Calavi">Université d'Abomey-Calavi</option>
+                <option value="UAC">UAC</option>
                 <option value="Cotonou">Cotonou</option>
                 <option value="Abomey-Calavi">Abomey-Calavi</option>
             </select>
+            @if ($errors->has('departure'))
+                <div class="error">{{ $errors->first('departure') }}</div>
+            @endif
         </div>
 
         <!-- Destination -->
         <div class="form-group">
             <label for="destination">Destination</label>
             <select id="destination" name="destination" required>
-                <option value="" disabled selected> Sélectionnez la destination </option>
+                <option value="" disabled selected>Sélectionnez la destination</option>
                 <option value="ENEAM">ENEAM</option>
                 <option value="UAC">UAC</option>
                 <option value="Cotonou">Cotonou</option>
-                <option value="A-C"><Abomey-Calavi></Abomey-Calavi></option>
+                <option value="Abomey-Calavi">Abomey-Calavi</option>
             </select>
-        </div>  
+            @if ($errors->has('destination'))
+                <div class="error">{{ $errors->first('destination') }}</div>
+            @endif
+        </div>
 
         <!-- Date -->
         <div class="form-group">
             <label for="date">Date</label>
             <input type="date" id="date" name="date" required>
+            @if ($errors->has('date'))
+                <div class="error">{{ $errors->first('date') }}</div>
+            @endif
         </div>
 
         <!-- Heure -->
         <div class="form-group">
             <label for="time">Heure de départ</label>
             <input type="time" id="time" name="time" required>
+            @if ($errors->has('time'))
+                <div class="error">{{ $errors->first('time') }}</div>
+            @endif
         </div>
 
         <!-- Nombre de places -->
         <div class="form-group">
             <label for="seats">Nombre de places disponibles</label>
             <input type="number" id="seats" name="seats" min="1" placeholder="Ex. : 3" required>
+            @if ($errors->has('seats'))
+                <div class="error">{{ $errors->first('seats') }}</div>
+            @endif
         </div>
 
         <!-- Prix -->
         <div class="form-group">
             <label for="price">Prix par place (FCFA)</label>
             <input type="number" id="price" name="price" step="0.01" placeholder="Ex. : 500" required>
+            @if ($errors->has('price'))
+                <div class="error">{{ $errors->first('price') }}</div>
+            @endif
         </div>
 
         <!-- Bouton -->
@@ -69,11 +87,5 @@
         </div>
     </form>
 </div>
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
-
 </body>
 </html>

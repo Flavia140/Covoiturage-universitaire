@@ -38,8 +38,7 @@ public function register(Request $request)
     ]);
 
     auth()->login($user);
-  //  return redirect()->route('accueil')->with('success', 'Inscription réussie !');
-  return to_route('accueil');
+    return redirect()->route('accueil')->with('success', 'Inscription réussie !');
 }
 
 

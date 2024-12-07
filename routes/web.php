@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TripController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,9 @@ Route::get('/publish', [TripController::class, 'create'])->name('publish');
     Route::get('/trips', [TripController::class, 'index'])->name('trips.index');        // Liste des trajets
 });
 
+
+// Route de déconnexion
+Route::post('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 Route::get('/trips/publish', [TripController::class, 'create'])->middleware('auth')->name('trips.publish');
 Route::post('/trips/store', [TripController::class, 'store'])->middleware('auth')->name('trips.store');

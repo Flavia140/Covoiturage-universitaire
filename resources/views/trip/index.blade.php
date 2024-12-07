@@ -3,47 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste des Trajets</title>
+    <link rel="stylesheet" href="{{ asset('css/trip.css') }}">
 </head>
 <body>
 <div class="container">
-    <h1>Liste des trajets</h1>
+    <h1>Liste des Trajets</h1>
+
+    <!-- Affichage du message de succès -->
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-    <table class="table">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Départ</th>
-                <th>Destination</th>
-                <th>Date & Heure</th>
-                <th>Places Disponibles</th>
-                <th>Publié par</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($trips as $trip)
+
+    <!-- Vérifiez si des trajets existent -->
+    @if($trips->isEmpty())
+        <p>Aucun trajet disponible pour le moment. Publiez-en un !</p>
+    @else
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $trip->depart }}</td>
-                    <td>{{ $trip->destination }}</td>
-                    <td>{{ $trip->date_heure }}</td>
-                    <td>{{ $trip->places_disponibles }}</td>
-                    <td>{{ $trip->user->name }}</td>
+                    <th>#</th>
+                    <th>Départ</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Places Disponibles</th>
+                    <th>Prix (FCFA)</th>
+                    <th>Publié par</th>
                 </tr>
-            @empty
-                <tr>
-                    <td colspan="6" class="text-center">Aucun trajet trouvé.</td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
-</div>  
+            </thead>
+            <tbody>
+                @foreach ($trips as $trip)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $trip->departure }}</td>
+                        <td>{{ $trip->destination }}</td>
+                        <td>{{ $trip->date }}</td>
+                        <td>{{ $trip->time }}</td>
+                        <td>{{ $trip->seats }}</td>
+                        <td>{{ $trip->price }}</td>
+                        <td>{{ $trip->user->name }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @endif
+</div>
 </body>
 </html>
-
-
-
